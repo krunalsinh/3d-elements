@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Letters</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/style.css">
+<style>
+/*---------BEGIN : KJV logo ------------*/
+.kjv-logo-link {
+	position: fixed;
+	inset: 50px 10px auto auto;
+	opacity: 0;
+	transition: 200ms;
+
+	&:hover {
+		opacity: 1;
+		& .kjv-logo {
+			transform: rotate(0deg);
+		}
+		& #kjvTringleRight,
+		& #kjvTringleLeft {
+			transition-delay: var(--kjvTransition);
+			transform: translateX(0px);
+		}
+		& #kjvLetters {
+			transition-delay: calc(var(--kjvTransition) * 2);
+			transform: scale(1);
+		}
+	}
+}
+.kjv-logo {
+	--kjvBgColor: #000;
+	--kjvFgColor: #fff;
+	--kjvTransition: 300ms;
+	--kjvLogoSize: 70px;
+	height: var(--kjvLogoSize);
+	width: var(--kjvLogoSize);
+	transition: var(--kjvTransition);
+	transform: rotate(-180deg);
+	border-radius: 50%;
+	& path,
+	& g,
+	& rect {
+		transform-box: fill-box;
+		transform-origin: center;
+	}
+	& #kjvOuterFill {
+		fill: var(--kjvBgColor);
+	}
+	& #kjvTringleLeft,
+	& #kjvTringleRight {
+		stroke: var(--kjvFgColor);
+		fill: var(--kjvFgColor);
+		transition: var(--kjvTransition);
+	}
+
+	& #kjvTringleRight {
+		transform: translateX(-347px);
+	}
+	& #kjvTringleLeft {
+		transform: translateX(347px);
+	}
+	& #kjvLetters {
+		transform: scale(0);
+		transition: var(--kjvTransition);
+		& path {
+			stroke: var(--kjvFgColor);
+			fill: var(--kjvBgColor);
+		}
+	}
+}
+
+/*---------END : KJV logo ------------*/
+</style>
+</head>
+<body>
+    <div class="frame ">
+        <div class="plane"></div>
+        <div style="--block-index: 1;" class="block letter-a block-1 bg-yellow">
+        <div class="inner-3-cell">
+          <i class="bottom ele-1"></i>
+          <i class="top ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+          
+          <i class="bottom ele-2"></i>
+          <i class="top ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+          
+          <i class="top ele-3"></i>
+          <i class="bottom ele-3"></i>
+          <i class="left ele-3"></i>
+          <i class="right ele-3"></i>
+          <i class="front ele-3"></i>
+          <i class="back ele-3"></i>
+          
+          <i class="top ele-4"></i>
+          <i class="bottom ele-4"></i>
+          <i class="left ele-4"></i>
+          <i class="right ele-4"></i>
+          <i class="front ele-4"></i>
+          <i class="back ele-4"></i>
+        </div>
+        </div>
+        <div style="--block-index: 2;" class="block letter-b block-2 bg-blue">
+        <div class="inner-3-cell">
+          <i class="bottom ele-1"></i>
+          <i class="top ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+          
+          <i class="bottom ele-2"></i>
+          <i class="top ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+          
+          <i class="top ele-3"></i>
+          <i class="bottom ele-3"></i>
+          <i class="left ele-3"></i>
+          <i class="right ele-3"></i>
+          <i class="front ele-3"></i>
+          <i class="back ele-3"></i>
+          
+          <i class="top ele-4"></i>
+          <i class="bottom ele-4"></i>
+          <i class="left ele-4"></i>
+          <i class="right ele-4"></i>
+          <i class="front ele-4"></i>
+          <i class="back ele-4"></i>
+          
+          <i class="top ele-5"></i>
+          <i class="bottom ele-5"></i>
+          <i class="left ele-5"></i>
+          <i class="right ele-5"></i>
+          <i class="front ele-5"></i>
+          <i class="back ele-5"></i>
+          
+          <i class="top ele-6"></i>
+          <i class="bottom ele-6"></i>
+          <i class="left ele-6"></i>
+          <i class="right ele-6"></i>
+          <i class="front ele-6"></i>
+          <i class="back ele-6"></i>
+        </div>
+        </div>
+      <div style="--block-index: 3;" class="block letter-c block-3 bg-red">
+        <div class="inner-3-cell">
+          <i class="bottom ele-1"></i>
+          <i class="top ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+         
+          <i class="top ele-2"></i>
+          <i class="bottom ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+          
+          <i class="top ele-3"></i>
+          <i class="bottom ele-3"></i>
+          <i class="left ele-3"></i>
+          <i class="right ele-3"></i>
+          <i class="front ele-3"></i>
+          <i class="back ele-3"></i>
+        </div>
+        </div>
+      <div style="--block-index: 4;" class="block letter-d block-4 bg-orange">
+          <i class="bottom ele-1"></i>
+          <i class="top ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+         
+          <i class="top ele-2"></i>
+          <i class="bottom ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+          
+          <i class="top ele-3"></i>
+          <i class="bottom ele-3"></i>
+          <i class="left ele-3"></i>
+          <i class="right ele-3"></i>
+          <i class="front ele-3"></i>
+          <i class="back ele-3"></i>
+          
+           <i class="bottom ele-4"></i>
+          <i class="top ele-4"></i>
+          <i class="left ele-4"></i>
+          <i class="right ele-4"></i>
+          <i class="front ele-4"></i>
+          <i class="back ele-4"></i>
+        </div>
+      <div style="--block-index: 5;" class="block letter-e block-5 bg-skyblue">
+        <div class="inner-3-cell">
+          <i class="top ele-1"></i>
+          <i class="bottom ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+         
+          <i class="top ele-2"></i>
+          <i class="bottom ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+          
+          <i class="top ele-3"></i>
+          <i class="bottom ele-3"></i>
+          <i class="left ele-3"></i>
+          <i class="right ele-3"></i>
+          <i class="front ele-3"></i>
+          <i class="back ele-3"></i>
+          
+          <i class="bottom ele-4"></i>
+          <i class="top ele-4"></i>
+          <i class="left ele-4"></i>
+          <i class="right ele-4"></i>
+          <i class="front ele-4"></i>
+          <i class="back ele-4"></i>
+        </div>
+        </div>
+      <div style="--block-index: 6;" class="block letter-f block-6 bg-green">
+        <div class="inner-3-cell">
+          <i class="bottom ele-1"></i>
+          <i class="top ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+         
+          <i class="top ele-2"></i>
+          <i class="bottom ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+          
+          <i class="top ele-3"></i>
+          <i class="bottom ele-3"></i>
+          <i class="left ele-3"></i>
+          <i class="right ele-3"></i>
+          <i class="front ele-3"></i>
+          <i class="back ele-3"></i>
+        </div>
+        </div>
+      <div style="--block-index: 7;" class="block letter-g block-7 bg-purple">
+          <i class="bottom ele-1"></i>
+          <i class="top ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+         
+          <i class="bottom ele-2"></i>
+          <i class="top ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+          
+          <i class="bottom ele-3"></i>
+          <i class="top ele-3"></i>
+          <i class="left ele-3"></i>
+          <i class="right ele-3"></i>
+          <i class="front ele-3"></i>
+          <i class="back ele-3"></i>
+          
+          <i class="bottom ele-4"></i>
+          <i class="top ele-4"></i>
+          <i class="left ele-4"></i>
+          <i class="right ele-4"></i>
+          <i class="front ele-4"></i>
+          <i class="back ele-4"></i>
+          
+          <i class="bottom ele-5"></i>
+          <i class="top ele-5"></i>
+          <i class="left ele-5"></i>
+          <i class="right ele-5"></i>
+          <i class="front ele-5"></i>
+          <i class="back ele-5"></i>
+        </div>
+      <div style="--block-index: 8;" class="block letter-h block-8 bg-dblue">
+        <div class="inner-3-cell">
+          <i class="bottom ele-1"></i>
+          <i class="top ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+          
+          <i class="bottom ele-2"></i>
+          <i class="top ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+          
+          <i class="top ele-3"></i>
+          <i class="bottom ele-3"></i>
+          <i class="left ele-3"></i>
+          <i class="right ele-3"></i>
+          <i class="front ele-3"></i>
+          <i class="back ele-3"></i>
+        </div>
+        </div>
+      <div style="--block-index: 9;" class="block letter-i block-9 bg-pink">
+        <div class="inner-3-cell">
+          <i class="bottom ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+         
+          <i class="top ele-2"></i>
+          <i class="bottom ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+          
+          <i class="top ele-3"></i>
+          <i class="bottom ele-3"></i>
+          <i class="left ele-3"></i>
+          <i class="right ele-3"></i>
+          <i class="front ele-3"></i>
+          <i class="back ele-3"></i>
+        </div>
+        </div>
+      <div style="--block-index: 10;" class="block letter-j block-10 bg-green">
+        <div class="inner-3-cell">
+          <i class="bottom ele-1"></i>
+          <i class="top ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+         
+          <i class="top ele-2"></i>
+          <i class="bottom ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+          
+          <i class="top ele-3"></i>
+          <i class="bottom ele-3"></i>
+          <i class="left ele-3"></i>
+          <i class="right ele-3"></i>
+          <i class="front ele-3"></i>
+          <i class="back ele-3"></i>
+          
+          <i class="top ele-4"></i>
+          <i class="bottom ele-4"></i>
+          <i class="left ele-4"></i>
+          <i class="right ele-4"></i>
+          <i class="front ele-4"></i>
+          <i class="back ele-4"></i>
+        </div>
+        </div>
+      <div style="--block-index: 11;" class="block letter-k block-11 bg-yellow">
+        <div class="inner-3-cell">
+          <i class="top ele-1"></i>
+          <i class="bottom ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+          
+          <i class="bottom ele-2"></i>
+          <i class="top ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+          
+          <i class="bottom ele-3"></i>
+          <i class="top ele-3"></i>
+          <i class="left ele-3"></i>
+          <i class="right ele-3"></i>
+          <i class="front ele-3"></i>
+          <i class="back ele-3"></i>
+          
+          <i class="bottom ele-4"></i>
+          <i class="top ele-4"></i>
+          <i class="left ele-4"></i>
+          <i class="right ele-4"></i>
+          <i class="front ele-4"></i>
+          <i class="back ele-4"></i>
+        </div>
+        </div>
+      <div style="--block-index: 12;" class="block letter-l block-12 bg-dblue">
+        <div class="inner-3-cell">
+          <i class="top ele-1"></i>
+          <i class="bottom ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+          
+          <i class="top ele-2"></i>
+          <i class="bottom ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+        </div>
+        </div>
+      <div style="--block-index: 13;" class="block letter-m block-13 bg-orange">
+          <i class="bottom ele-1"></i>
+          <i class="top ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+          
+          <i class="bottom ele-2"></i>
+          <i class="top ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+          
+          <i class="bottom ele-3"></i>
+          <i class="top ele-3"></i>
+          <i class="left ele-3"></i>
+          <i class="right ele-3"></i>
+          <i class="front ele-3"></i>
+          <i class="back ele-3"></i>
+          
+          <i class="bottom ele-4"></i>
+          <i class="top ele-4"></i>
+          <i class="left ele-4"></i>
+          <i class="right ele-4"></i>
+          <i class="front ele-4"></i>
+          <i class="back ele-4"></i>
+          
+          <i class="bottom ele-5"></i>
+          <i class="top ele-5"></i>
+          <i class="left ele-5"></i>
+          <i class="right ele-5"></i>
+          <i class="front ele-5"></i>
+          <i class="back ele-5"></i>
+        </div>
+      <div style="--block-index: 14;" class="block letter-n block-14 bg-skyblue"> 
+          <i class="bottom ele-1"></i>
+          <i class="top ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+          
+          <i class="bottom ele-2"></i>
+          <i class="top ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+          
+          <i class="bottom ele-3"></i>
+          <i class="top ele-3"></i>
+          <i class="left ele-3"></i>
+          <i class="right ele-3"></i>
+          <i class="front ele-3"></i>
+          <i class="back ele-3"></i>
+        
+        <i class="bottom ele-4"></i>
+        <i class="top ele-4"></i>
+          <i class="left ele-4"></i>
+          <i class="right ele-4"></i>
+          <i class="front ele-4"></i>
+          <i class="back ele-4"></i>
+        </div>
+      <div style="--block-index: 15;" class="block letter-o block-15 bg-green">
+        <i class="top ele-1"></i>
+          <i class="bottom ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+          
+          <i class="top ele-2"></i>
+          <i class="bottom ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+          
+          <i class="top ele-3"></i>
+          <i class="bottom ele-3"></i>
+          <i class="left ele-3"></i>
+          <i class="right ele-3"></i>
+          <i class="front ele-3"></i>
+          <i class="back ele-3"></i>
+          
+          <i class="bottom ele-4"></i>
+          <i class="left ele-4"></i>
+          <i class="right ele-4"></i>
+          <i class="front ele-4"></i>
+          <i class="back ele-4"></i>
+        </div>
+      <div style="--block-index: 16;" class="block letter-p block-16 bg-purple">
+        <div class="inner-3-cell">
+          <i class="bottom ele-1"></i>
+          <i class="top ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+          
+          <i class="bottom ele-2"></i>
+          <i class="top ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+          
+          <i class="bottom ele-3"></i>
+          <i class="top ele-3"></i>
+          <i class="left ele-3"></i>
+          <i class="right ele-3"></i>
+          <i class="front ele-3"></i>
+          <i class="back ele-3"></i>
+          
+          <i class="bottom ele-4"></i>
+          <i class="top ele-4"></i>
+          <i class="left ele-4"></i>
+          <i class="right ele-4"></i>
+          <i class="front ele-4"></i>
+          <i class="back ele-4"></i>
+        </div>
+        </div>
+      <div style="--block-index: 17;" class="block letter-q block-17 bg-dblue">
+          <i class="top ele-1"></i>
+          <i class="bottom ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+          
+          <i class="top ele-2"></i>
+          <i class="bottom ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+          
+          <i class="bottom ele-3"></i>
+          <i class="top ele-3"></i>
+          <i class="left ele-3"></i>
+          <i class="right ele-3"></i>
+          <i class="front ele-3"></i>
+          <i class="back ele-3"></i>
+        
+        <i class="bottom ele-4"></i>
+          <i class="top ele-4"></i>
+          <i class="left ele-4"></i>
+          <i class="right ele-4"></i>
+          <i class="front ele-4"></i>
+          <i class="back ele-4"></i>
+        
+        <i class="bottom ele-5"></i>
+          <i class="top ele-5"></i>
+          <i class="left ele-5"></i>
+          <i class="right ele-5"></i>
+          <i class="front ele-5"></i>
+          <i class="back ele-5"></i>
+        
+        <i class="bottom ele-6"></i>
+          <i class="top ele-6"></i>
+          <i class="left ele-6"></i>
+          <i class="right ele-6"></i>
+          <i class="front ele-6"></i>
+          <i class="back ele-6"></i>
+        
+        <i class="bottom ele-7"></i>
+        <i class="top ele-7"></i>
+          <i class="left ele-7"></i>
+          <i class="right ele-7"></i>
+          <i class="front ele-7"></i>
+          <i class="back ele-7"></i>
+        </div>
+      <div style="--block-index: 18;" class="block letter-r block-18 bg-yellow">
+        <div class="inner-3-cell">
+          <i class="top ele-1"></i>
+          <i class="bottom ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+          
+          <i class="top ele-2"></i>
+          <i class="bottom ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+          
+          <i class="top ele-3"></i>
+          <i class="bottom ele-3"></i>
+          <i class="left ele-3"></i>
+          <i class="right ele-3"></i>
+          <i class="front ele-3"></i>
+          <i class="back ele-3"></i>
+          
+          <i class="top ele-4"></i>
+          <i class="bottom ele-4"></i>
+          <i class="left ele-4"></i>
+          <i class="right ele-4"></i>
+          <i class="front ele-4"></i>
+          <i class="back ele-4"></i>
+          
+          <i class="top ele-5"></i>
+          <i class="bottom ele-5"></i>
+          <i class="left ele-5"></i>
+          <i class="right ele-5"></i>
+          <i class="front ele-5"></i>
+          <i class="back ele-5"></i>
+        </div>
+        </div>
+      <div style="--block-index: 19;" class="block letter-s block-19 bg-blue">
+        <div class="inner-3-cell">
+          <i class="top ele-1"></i>
+          <i class="bottom ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+          
+          <i class="top ele-2"></i>
+          <i class="bottom ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+          
+          <i class="top ele-3"></i>
+          <i class="bottom ele-3"></i>
+          <i class="left ele-3"></i>
+          <i class="right ele-3"></i>
+          <i class="front ele-3"></i>
+          <i class="back ele-3"></i>
+          
+          <i class="top ele-4"></i>
+          <i class="bottom ele-4"></i>
+          <i class="left ele-4"></i>
+          <i class="right ele-4"></i>
+          <i class="front ele-4"></i>
+          <i class="back ele-4"></i>
+          
+          <i class="top ele-5"></i>
+          <i class="bottom ele-5"></i>
+          <i class="left ele-5"></i>
+          <i class="right ele-5"></i>
+          <i class="front ele-5"></i>
+          <i class="back ele-5"></i>
+        </div>
+        </div>
+      <div style="--block-index: 20;" class="block letter-t block-20 bg-red">
+        <div class="inner-3-cell">
+          <i class="top ele-1"></i>
+          <i class="bottom ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+          
+          <i class="top ele-2"></i>
+          <i class="bottom ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+        </div>
+        </div>
+      <div style="--block-index: 21;" class="block letter-u block-21 bg-skyblue">
+        <div class="inner-3-cell">
+          <i class="top ele-1"></i>
+          <i class="bottom ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+          
+          <i class="top ele-2"></i>
+          <i class="bottom ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+          
+          <i class="top ele-3"></i>
+          <i class="bottom ele-3"></i>
+          <i class="left ele-3"></i>
+          <i class="right ele-3"></i>
+          <i class="front ele-3"></i>
+          <i class="back ele-3"></i>
+        </div>
+        </div>
+      <div style="--block-index: 22;" class="block letter-v block-22 bg-orange">
+          <i class="top ele-1"></i>
+          <i class="bottom ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+          
+          <i class="top ele-2"></i>
+          <i class="bottom ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+          
+          <i class="top ele-3"></i>
+          <i class="bottom ele-3"></i>
+          <i class="left ele-3"></i>
+          <i class="right ele-3"></i>
+          <i class="front ele-3"></i>
+          <i class="back ele-3"></i>
+          
+          <i class="top ele-4"></i>
+          <i class="bottom ele-4"></i>
+          <i class="left ele-4"></i>
+          <i class="right ele-4"></i>
+          <i class="front ele-4"></i>
+          <i class="back ele-4"></i>
+          
+          <i class="top ele-5"></i>
+          <i class="bottom ele-5"></i>
+          <i class="left ele-5"></i>
+          <i class="right ele-5"></i>
+          <i class="front ele-5"></i>
+          <i class="back ele-5"></i>
+        </div>
+      <div style="--block-index: 23;" class="block letter-w block-23 bg-purple">
+        <div class="inner-3-cell">
+          <i class="top ele-1"></i>
+          <i class="bottom ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+          
+          <i class="top ele-2"></i>
+          <i class="bottom ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+          
+          <i class="top ele-3"></i>
+          <i class="bottom ele-3"></i>
+          <i class="left ele-3"></i>
+          <i class="right ele-3"></i>
+          <i class="front ele-3"></i>
+          <i class="back ele-3"></i>
+          
+          <i class="top ele-4"></i>
+          <i class="bottom ele-4"></i>
+          <i class="left ele-4"></i>
+          <i class="right ele-4"></i>
+          <i class="front ele-4"></i>
+          <i class="back ele-4"></i>
+          
+          <i class="top ele-5"></i>
+          <i class="bottom ele-5"></i>
+          <i class="left ele-5"></i>
+          <i class="right ele-5"></i>
+          <i class="front ele-5"></i>
+          <i class="back ele-5"></i>
+        </div>
+        </div>
+      <div style="--block-index: 24;" class="block letter-x block-24 bg-green">
+          <i class="top ele-1"></i>
+          <i class="bottom ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+          
+          <i class="top ele-2"></i>
+          <i class="bottom ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+          
+          <i class="top ele-3"></i>
+          <i class="bottom ele-3"></i>
+          <i class="left ele-3"></i>
+          <i class="right ele-3"></i>
+          <i class="front ele-3"></i>
+          <i class="back ele-3"></i>
+          
+          <i class="top ele-4"></i>
+          <i class="bottom ele-4"></i>
+          <i class="left ele-4"></i>
+          <i class="right ele-4"></i>
+          <i class="front ele-4"></i>
+          <i class="back ele-4"></i>
+          
+          <i class="top ele-5"></i>
+          <i class="bottom ele-5"></i>
+          <i class="left ele-5"></i>
+          <i class="right ele-5"></i>
+          <i class="front ele-5"></i>
+          <i class="back ele-5"></i>
+          
+          <i class="top ele-6"></i>
+          <i class="bottom ele-6"></i>
+          <i class="left ele-6"></i>
+          <i class="right ele-6"></i>
+          <i class="front ele-6"></i>
+          <i class="back ele-6"></i>
+          
+          <i class="top ele-7"></i>
+          <i class="bottom ele-7"></i>
+          <i class="left ele-7"></i>
+          <i class="right ele-7"></i>
+          <i class="front ele-7"></i>
+          <i class="back ele-7"></i>
+          
+          <i class="top ele-8"></i>
+          <i class="bottom ele-8"></i>
+          <i class="left ele-8"></i>
+          <i class="right ele-8"></i>
+          <i class="front ele-8"></i>
+          <i class="back ele-8"></i>
+          
+          <i class="top ele-9"></i>
+          <i class="bottom ele-9"></i>
+          <i class="left ele-9"></i>
+          <i class="right ele-9"></i>
+          <i class="front ele-9"></i>
+          <i class="back ele-9"></i>
+        </div>
+      <div style="--block-index: 25;" class="block letter-y block-25 bg-dblue">
+          <i class="top ele-1"></i>
+          <i class="bottom ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+          
+          <i class="top ele-2"></i>
+          <i class="bottom ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+          
+          <i class="top ele-3"></i>
+          <i class="bottom ele-3"></i>
+          <i class="left ele-3"></i>
+          <i class="right ele-3"></i>
+          <i class="front ele-3"></i>
+          <i class="back ele-3"></i>
+          
+          <i class="top ele-4"></i>
+          <i class="bottom ele-4"></i>
+          <i class="left ele-4"></i>
+          <i class="right ele-4"></i>
+          <i class="front ele-4"></i>
+          <i class="back ele-4"></i>
+          
+          <i class="top ele-5"></i>
+          <i class="bottom ele-5"></i>
+          <i class="left ele-5"></i>
+          <i class="right ele-5"></i>
+          <i class="front ele-5"></i>
+          <i class="back ele-5"></i>
+        </div>
+      <div style="--block-index: 26;" class="block letter-z block-26 bg-yellow">
+          <i class="top ele-1"></i>
+          <i class="bottom ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+          
+          <i class="top ele-2"></i>
+          <i class="bottom ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+          
+          <i class="top ele-3"></i>
+          <i class="bottom ele-3"></i>
+          <i class="left ele-3"></i>
+          <i class="right ele-3"></i>
+          <i class="front ele-3"></i>
+          <i class="back ele-3"></i>
+          
+          <i class="top ele-4"></i>
+          <i class="bottom ele-4"></i>
+          <i class="left ele-4"></i>
+          <i class="right ele-4"></i>
+          <i class="front ele-4"></i>
+          <i class="back ele-4"></i>
+          
+          <i class="top ele-5"></i>
+          <i class="bottom ele-5"></i>
+          <i class="left ele-5"></i>
+          <i class="right ele-5"></i>
+          <i class="front ele-5"></i>
+          <i class="back ele-5"></i>
+        </div>
+      <div style="--block-index: 27;" class="block number-1 block-27 bg-blue">
+        <div class="inner-3-cell">
+          <i class="top ele-1"></i>
+          <i class="bottom ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+          
+          <i class="top ele-2"></i>
+          <i class="bottom ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+          
+          <i class="top ele-3"></i>
+          <i class="bottom ele-3"></i>
+          <i class="left ele-3"></i>
+          <i class="right ele-3"></i>
+          <i class="front ele-3"></i>
+          <i class="back ele-3"></i>
+        </div>
+        </div>
+      <div style="--block-index: 28;" class="block number-2 block-28 bg-red">
+         <div class="inner-3-cell">
+          <i class="top ele-1"></i>
+          <i class="bottom ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+          
+          <i class="top ele-2"></i>
+          <i class="bottom ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+          
+          <i class="top ele-3"></i>
+          <i class="bottom ele-3"></i>
+          <i class="left ele-3"></i>
+          <i class="right ele-3"></i>
+          <i class="front ele-3"></i>
+          <i class="back ele-3"></i>
+           
+           <i class="top ele-4"></i>
+          <i class="bottom ele-4"></i>
+          <i class="left ele-4"></i>
+          <i class="right ele-4"></i>
+          <i class="front ele-4"></i>
+          <i class="back ele-4"></i>
+           
+            <i class="top ele-5"></i>
+          <i class="bottom ele-5"></i>
+          <i class="left ele-5"></i>
+          <i class="right ele-5"></i>
+          <i class="front ele-5"></i>
+          <i class="back ele-5"></i>
+        </div>
+        
+        </div>
+      <div style="--block-index: 29;" class="block number-3 block-29 bg-orange ">
+         <div class="inner-3-cell">
+          <i class="top ele-1"></i>
+          <i class="bottom ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+          
+          <i class="top ele-2"></i>
+          <i class="bottom ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+          
+          <i class="top ele-3"></i>
+          <i class="bottom ele-3"></i>
+          <i class="left ele-3"></i>
+          <i class="right ele-3"></i>
+          <i class="front ele-3"></i>
+          <i class="back ele-3"></i>
+           
+           <i class="top ele-4"></i>
+          <i class="bottom ele-4"></i>
+          <i class="left ele-4"></i>
+          <i class="right ele-4"></i>
+          <i class="front ele-4"></i>
+          <i class="back ele-4"></i>
+           
+            <i class="top ele-5"></i>
+          <i class="bottom ele-5"></i>
+          <i class="left ele-5"></i>
+          <i class="right ele-5"></i>
+          <i class="front ele-5"></i>
+          <i class="back ele-5"></i>
+        </div>
+        
+        </div>
+      <div style="--block-index: 30;" class="block number-4 block-30 bg-skyblue ">
+         <div class="inner-3-cell">
+          <i class="top ele-1"></i>
+          <i class="bottom ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+          
+          <i class="top ele-2"></i>
+          <i class="bottom ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+          
+          <i class="top ele-3"></i>
+          <i class="bottom ele-3"></i>
+          <i class="left ele-3"></i>
+          <i class="right ele-3"></i>
+          <i class="front ele-3"></i>
+          <i class="back ele-3"></i>
+           
+          
+        </div>
+        
+        </div>
+      <div style="--block-index: 31;" class="block number-5 block-31 bg-green ">
+         <div class="inner-3-cell">
+          <i class="top ele-1"></i>
+          <i class="bottom ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+          
+          <i class="top ele-2"></i>
+          <i class="bottom ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+          
+          <i class="top ele-3"></i>
+          <i class="bottom ele-3"></i>
+          <i class="left ele-3"></i>
+          <i class="right ele-3"></i>
+          <i class="front ele-3"></i>
+          <i class="back ele-3"></i>
+           
+           <i class="top ele-4"></i>
+          <i class="bottom ele-4"></i>
+          <i class="left ele-4"></i>
+          <i class="right ele-4"></i>
+          <i class="front ele-4"></i>
+          <i class="back ele-4"></i>
+           
+            <i class="top ele-5"></i>
+          <i class="bottom ele-5"></i>
+          <i class="left ele-5"></i>
+          <i class="right ele-5"></i>
+          <i class="front ele-5"></i>
+          <i class="back ele-5"></i>
+        </div>
+        
+        </div>
+      <div style="--block-index: 32;" class="block number-6 block-32 bg-purple ">
+         <div class="inner-3-cell">
+          <i class="top ele-1"></i>
+          <i class="bottom ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+          
+          <i class="top ele-2"></i>
+          <i class="bottom ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+          
+          <i class="top ele-3"></i>
+          <i class="bottom ele-3"></i>
+          <i class="left ele-3"></i>
+          <i class="right ele-3"></i>
+          <i class="front ele-3"></i>
+          <i class="back ele-3"></i>
+           
+           <i class="top ele-4"></i>
+          <i class="bottom ele-4"></i>
+          <i class="left ele-4"></i>
+          <i class="right ele-4"></i>
+          <i class="front ele-4"></i>
+          <i class="back ele-4"></i>
+          
+            <i class="top ele-5"></i>
+          <i class="bottom ele-5"></i>
+          <i class="left ele-5"></i>
+          <i class="right ele-5"></i>
+          <i class="front ele-5"></i>
+          <i class="back ele-5"></i>
+        </div>
+        </div>
+      <div style="--block-index: 33;" class="block number-7 block-33 bg-dblue ">
+          <i class="top ele-1"></i>
+          <i class="bottom ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+          
+          <i class="top ele-2"></i>
+          <i class="bottom ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+          
+          <i class="top ele-3"></i>
+          <i class="bottom ele-3"></i>
+          <i class="left ele-3"></i>
+          <i class="right ele-3"></i>
+          <i class="front ele-3"></i>
+          <i class="back ele-3"></i>
+           
+           <i class="top ele-4"></i>
+          <i class="bottom ele-4"></i>
+          <i class="left ele-4"></i>
+          <i class="right ele-4"></i>
+          <i class="front ele-4"></i>
+          <i class="back ele-4"></i>
+        </div>
+      <div style="--block-index: 34;" class="block number-8 block-34 bg-blue">
+        <div class="inner-3-cell">
+          <i class="bottom ele-1"></i>
+          <i class="top ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+          
+          <i class="bottom ele-2"></i>
+          <i class="top ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+          
+          <i class="top ele-3"></i>
+          <i class="bottom ele-3"></i>
+          <i class="left ele-3"></i>
+          <i class="right ele-3"></i>
+          <i class="front ele-3"></i>
+          <i class="back ele-3"></i>
+          
+          <i class="top ele-4"></i>
+          <i class="bottom ele-4"></i>
+          <i class="left ele-4"></i>
+          <i class="right ele-4"></i>
+          <i class="front ele-4"></i>
+          <i class="back ele-4"></i>
+          
+          <i class="top ele-5"></i>
+          <i class="bottom ele-5"></i>
+          <i class="left ele-5"></i>
+          <i class="right ele-5"></i>
+          <i class="front ele-5"></i>
+          <i class="back ele-5"></i>
+        </div>
+        </div>
+      <div style="--block-index: 35;" class="block number-9 block-35 bg-pink">
+         <div class="inner-3-cell">
+          <i class="top ele-1"></i>
+          <i class="bottom ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+          
+          <i class="top ele-2"></i>
+          <i class="bottom ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+          
+          <i class="top ele-3"></i>
+          <i class="bottom ele-3"></i>
+          <i class="left ele-3"></i>
+          <i class="right ele-3"></i>
+          <i class="front ele-3"></i>
+          <i class="back ele-3"></i>
+           
+           <i class="top ele-4"></i>
+          <i class="bottom ele-4"></i>
+          <i class="left ele-4"></i>
+          <i class="right ele-4"></i>
+          <i class="front ele-4"></i>
+          <i class="back ele-4"></i>
+          
+            <i class="top ele-5"></i>
+          <i class="bottom ele-5"></i>
+          <i class="left ele-5"></i>
+          <i class="right ele-5"></i>
+          <i class="front ele-5"></i>
+          <i class="back ele-5"></i>
+        </div>
+        </div>
+      <div style="--block-index: 36;" class="block number-0 block-36 bg-green">
+        <div class="inner-3-cell">
+          <i class="top ele-1"></i>
+          <i class="bottom ele-1"></i>
+          <i class="left ele-1"></i>
+          <i class="right ele-1"></i>
+          <i class="front ele-1"></i>
+          <i class="back ele-1"></i>
+          
+          <i class="top ele-2"></i>
+          <i class="bottom ele-2"></i>
+          <i class="left ele-2"></i>
+          <i class="right ele-2"></i>
+          <i class="front ele-2"></i>
+          <i class="back ele-2"></i>
+          
+          <i class="top ele-3"></i>
+          <i class="bottom ele-3"></i>
+          <i class="left ele-3"></i>
+          <i class="right ele-3"></i>
+          <i class="front ele-3"></i>
+          <i class="back ele-3"></i>
+          
+          <i class="bottom ele-4"></i>
+          <i class="left ele-4"></i>
+          <i class="right ele-4"></i>
+          <i class="front ele-4"></i>
+          <i class="back ele-4"></i>
+        </div>
+        </div>
+      
+    </div>
+    
+    <!-- BEGIN : kjv logo -->
+    <a href="https://codepen.io/krunal5281" class="kjv-logo-link" target="_blank" title="My Codepen Profile">
+        <svg xmlns="http://www.w3.org/2000/svg" width="3096" height="3096" viewBox="0 0 3096 3096" fill="none" class="kjv-logo">
+            <rect width="3096" height="3096" fill="black" id="kjvOuterFill"/>
+            <g id="kjvMainGroup">
+            <path id="kjvTringleRight" d="M2811 1573.5L1977 2408V745L2811 1573.5Z" fill="white" stroke="white" stroke-width="172"/>
+            <path id="kjvTringleLeft" d="M285 1578L1115 748V2408L285 1578Z" fill="white" stroke="white" stroke-width="172"/>
+            <g id="kjvLetters">
+            <path d="M1344 909.304V571H1710L1344 909.304ZM1344 909.304V1124H1731L1502.5 783.094" stroke="white" stroke-width="62"/>
+            <path d="M1345 1643.11V1847H1759V1304H1394L1759 1626.5" stroke="white" stroke-width="62"/>
+            <path id="Vector 8" d="M1743.5 2017H1356.5L1552.5 2526L1743.5 2017Z" fill="#000" stroke="white" stroke-width="62"/>
+            </g>
+            </g>
+        </svg>
+    </a>
+    
+    <!-- BEGIN : kjv logo -->
+</body>
+</html>
