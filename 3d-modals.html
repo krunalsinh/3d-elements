@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Letters</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/style-modals.css" />
+    <style>
+      /*---------BEGIN : KJV logo ------------*/
+      .kjv-logo-link {
+        position: fixed;
+        inset: 50px 10px auto auto;
+        opacity: 0;
+        transition: 200ms;
+
+        &:hover {
+          opacity: 1;
+          & .kjv-logo {
+            transform: rotate(0deg);
+          }
+          & #kjvTringleRight,
+          & #kjvTringleLeft {
+            transition-delay: var(--kjvTransition);
+            transform: translateX(0px);
+          }
+          & #kjvLetters {
+            transition-delay: calc(var(--kjvTransition) * 2);
+            transform: scale(1);
+          }
+        }
+      }
+      .kjv-logo {
+        --kjvBgColor: #000;
+        --kjvFgColor: #fff;
+        --kjvTransition: 300ms;
+        --kjvLogoSize: 70px;
+        height: var(--kjvLogoSize);
+        width: var(--kjvLogoSize);
+        transition: var(--kjvTransition);
+        transform: rotate(-180deg);
+        border-radius: 50%;
+        & path,
+        & g,
+        & rect {
+          transform-box: fill-box;
+          transform-origin: center;
+        }
+        & #kjvOuterFill {
+          fill: var(--kjvBgColor);
+        }
+        & #kjvTringleLeft,
+        & #kjvTringleRight {
+          stroke: var(--kjvFgColor);
+          fill: var(--kjvFgColor);
+          transition: var(--kjvTransition);
+        }
+
+        & #kjvTringleRight {
+          transform: translateX(-347px);
+        }
+        & #kjvTringleLeft {
+          transform: translateX(347px);
+        }
+        & #kjvLetters {
+          transform: scale(0);
+          transition: var(--kjvTransition);
+          & path {
+            stroke: var(--kjvFgColor);
+            fill: var(--kjvBgColor);
+          }
+        }
+      }
+
+      /*---------END : KJV logo ------------*/
+    </style>
+  </head>
+  <body>
+    
+<div class="frame">
+  <div class="plane"></div>
+  <div style="--block-index: 1;" class="block house">
+    <div class="ele ele-1 pattern-1">
+      <i class="bottom"></i>
+      <i class="top"></i>
+      <i class="left"></i>
+      <i class="right"></i>
+      <i class="front"></i>
+      <i class="back"></i>
+    </div>
+    <div class="ele ele-2">
+      <i class="bottom"></i>
+      <i class="top"></i>
+      <i class="left"></i>
+      <i class="right"></i>
+      <i class="front"></i>
+      <i class="back"></i>
+    </div>
+    <div class="ele ele-3">
+      <i class="bottom"></i>
+      <i class="top"></i>
+      <i class="left"></i>
+      <i class="right"></i>
+      <i class="front"></i>
+      <i class="back"></i>
+    </div>
+    <div class="ele ele-4">
+      <i class="bottom"></i>
+      <i class="top"></i>
+      <i class="left"></i>
+      <i class="right"></i>
+      <i class="front"></i>
+      <i class="back"></i>
+    </div>
+    <div class="ele ele-5">
+      <i class="bottom"></i>
+      <i class="top"></i>
+      <i class="left"></i>
+      <i class="right"></i>
+      <i class="front"></i>
+      <i class="back"></i>
+    </div>
+    <div class="ele ele-6">
+      <i class="bottom"></i>
+      <i class="top"></i>
+      <i class="left"></i>
+      <i class="right"></i>
+      <i class="front"></i>
+      <i class="back"></i>
+    </div>
+    <div class="ele ele-7">
+      <i class="bottom"></i>
+      <i class="top"></i>
+      <i class="left"></i>
+      <i class="right"></i>
+      <i class="front"></i>
+      <i class="back"></i>
+    </div>
+    <div class="ele ele-8">
+      <i class="bottom"></i>
+      <i class="top"></i>
+      <i class="left"></i>
+      <i class="right"></i>
+      <i class="front"></i>
+      <i class="back"></i>
+    </div>
+  </div>
+  <div style="--block-index: 1;" class="block tree">
+     <div class="ele ele-1">
+      <i class="bottom"></i>
+      <i class="top"></i>
+      <i class="left"></i>
+      <i class="right"></i>
+      <i class="front"></i>
+      <i class="back"></i>
+    </div>
+     <div class="ele ele-2">
+      <i class="bottom"></i>
+      <i class="top"></i>
+      <i class="left"></i>
+      <i class="right"></i>
+      <i class="front"></i>
+      <i class="back"></i>
+    </div>
+    <div class="ele ele-3">
+      <i class="bottom"></i>
+      <i class="top"></i>
+      <i class="left"></i>
+      <i class="right"></i>
+      <i class="front"></i>
+      <i class="back"></i>
+    </div>
+    <div class="ele ele-4">
+      <i class="bottom"></i>
+      <i class="top"></i>
+      <i class="left"></i>
+      <i class="right"></i>
+      <i class="front"></i>
+      <i class="back"></i>
+    </div>
+    <div class="ele ele-5">
+      <i class="bottom"></i>
+      <i class="top"></i>
+      <i class="left"></i>
+      <i class="right"></i>
+      <i class="front"></i>
+      <i class="back"></i>
+    </div>
+    <div class="ele ele-6">
+      <i class="bottom"></i>
+      <i class="top"></i>
+      <i class="left"></i>
+      <i class="right"></i>
+      <i class="front"></i>
+      <i class="back"></i>
+    </div>
+  </div>
+  <div style="--block-index: 1;" class="block tree tree-1">
+     <div class="ele ele-1">
+      <i class="bottom"></i>
+      <i class="top"></i>
+      <i class="left"></i>
+      <i class="right"></i>
+      <i class="front"></i>
+      <i class="back"></i>
+    </div>
+     <div class="ele ele-2">
+      <i class="bottom"></i>
+      <i class="top"></i>
+      <i class="left"></i>
+      <i class="right"></i>
+      <i class="front"></i>
+      <i class="back"></i>
+    </div>
+    <div class="ele ele-3">
+      <i class="bottom"></i>
+      <i class="top"></i>
+      <i class="left"></i>
+      <i class="right"></i>
+      <i class="front"></i>
+      <i class="back"></i>
+    </div>
+    <div class="ele ele-4">
+      <i class="bottom"></i>
+      <i class="top"></i>
+      <i class="left"></i>
+      <i class="right"></i>
+      <i class="front"></i>
+      <i class="back"></i>
+    </div>
+    <div class="ele ele-5">
+      <i class="bottom"></i>
+      <i class="top"></i>
+      <i class="left"></i>
+      <i class="right"></i>
+      <i class="front"></i>
+      <i class="back"></i>
+    </div>
+    <div class="ele ele-6">
+      <i class="bottom"></i>
+      <i class="top"></i>
+      <i class="left"></i>
+      <i class="right"></i>
+      <i class="front"></i>
+      <i class="back"></i>
+    </div>
+  </div>
+</div>
+<!-- BEGIN : kjv logo -->
+<a href="https://codepen.io/krunal5281" class="kjv-logo-link" target="_blank" title="My Codepen Profile">
+  <svg xmlns="http://www.w3.org/2000/svg" width="3096" height="3096" viewBox="0 0 3096 3096" fill="none" class="kjv-logo">
+    <rect width="3096" height="3096" fill="black" id="kjvOuterFill" />
+    <g id="kjvMainGroup">
+      <path id="kjvTringleRight" d="M2811 1573.5L1977 2408V745L2811 1573.5Z" fill="white" stroke="white" stroke-width="172" />
+      <path id="kjvTringleLeft" d="M285 1578L1115 748V2408L285 1578Z" fill="white" stroke="white" stroke-width="172" />
+      <g id="kjvLetters">
+        <path d="M1344 909.304V571H1710L1344 909.304ZM1344 909.304V1124H1731L1502.5 783.094" stroke="white" stroke-width="62" />
+        <path d="M1345 1643.11V1847H1759V1304H1394L1759 1626.5" stroke="white" stroke-width="62" />
+        <path id="Vector 8" d="M1743.5 2017H1356.5L1552.5 2526L1743.5 2017Z" fill="#000" stroke="white" stroke-width="62" />
+      </g>
+    </g>
+  </svg>
+</a>
+
+<!-- BEGIN : kjv logo -->
+    <!-- BEGIN : kjv logo -->
+    <a
+      href="https://codepen.io/krunal5281"
+      class="kjv-logo-link"
+      target="_blank"
+      title="My Codepen Profile"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="3096"
+        height="3096"
+        viewBox="0 0 3096 3096"
+        fill="none"
+        class="kjv-logo"
+      >
+        <rect width="3096" height="3096" fill="black" id="kjvOuterFill" />
+        <g id="kjvMainGroup">
+          <path
+            id="kjvTringleRight"
+            d="M2811 1573.5L1977 2408V745L2811 1573.5Z"
+            fill="white"
+            stroke="white"
+            stroke-width="172"
+          />
+          <path
+            id="kjvTringleLeft"
+            d="M285 1578L1115 748V2408L285 1578Z"
+            fill="white"
+            stroke="white"
+            stroke-width="172"
+          />
+          <g id="kjvLetters">
+            <path
+              d="M1344 909.304V571H1710L1344 909.304ZM1344 909.304V1124H1731L1502.5 783.094"
+              stroke="white"
+              stroke-width="62"
+            />
+            <path
+              d="M1345 1643.11V1847H1759V1304H1394L1759 1626.5"
+              stroke="white"
+              stroke-width="62"
+            />
+            <path
+              id="Vector 8"
+              d="M1743.5 2017H1356.5L1552.5 2526L1743.5 2017Z"
+              fill="#000"
+              stroke="white"
+              stroke-width="62"
+            />
+          </g>
+        </g>
+      </svg>
+    </a>
+
+    <!-- BEGIN : kjv logo -->
+    <script>
+      const frame = document.querySelector(".frame");
+      const charSelect = document.querySelector("#charSelect");
+      charSelect.addEventListener("change", (e) => {
+        const value = e.currentTarget.value;
+        document
+          .querySelectorAll(".block")
+          .forEach((e) => e.classList.add("d-none"));
+        document.getElementsByClassName(value)[0].classList.remove("d-none");
+      });
+
+      const charColor = document.querySelector("#charColor");
+      charColor.addEventListener("input", (e) => {
+        const value = e.currentTarget.value;
+        frame.style.setProperty("--bg-color", e.target.value);
+      });
+
+      const patternRadios = document.querySelectorAll(".pattern-radio input");
+      patternRadios.forEach((e) =>
+        e.addEventListener("change", (e) => {
+          ["pattern-1", "pattern-2", "pattern-3", "pattern-4"].forEach((e) =>
+            frame.classList.remove(e)
+          );
+          frame.classList.add(`pattern-${e.target.value}`);
+        })
+      );
+
+      const stopAnimChk = document.querySelector("#stopAnim");
+      stopAnimChk.addEventListener("change", (e) => {
+        console.log(e.target.checked);
+        e.target.checked
+          ? frame.classList.add("stop-anim")
+          : frame.classList.remove("stop-anim");
+      });
+    </script>
+  </body>
+</html>
